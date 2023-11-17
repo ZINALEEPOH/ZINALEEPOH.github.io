@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Package Tours - WX Travel Company</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <img id="background-image" src="images/tours.jpg" alt="Background Image">
+
+    <video autoplay muted loop id="background-video">
+        <source src="videos/packageToursVid.mp4" type="video/mp4">
+    </video>
+
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="images/WX_LOGO.svg" alt="WX Travel Company Logo">
+        </a>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html" id="homeLink">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="packageTours.html" class="dropbtn">Package Tours</a>
+                        <div class="dropdown-content">
+                            <a href="#">Edinburgh</a>
+                            <a href="#">Cairo</a>
+                            <a href="#">Grainau</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#RediscoverSingapore" id="rediscoverLink">Rediscover Singapore</a></li>
+                <li><a href="#Cruises" id="cruisesLink">Cruises</a></li>
+                <li><a href="contactUs.html" id="contactLink">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Come Tour With Us!</h1>
+
+    <div class="package-tour">
+        <img src="images/edinburgh.jpg" alt="Tour Image 1">
+        <h2>Scotland</h2>
+        <p>Edinburgh Castle</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="package-tour">
+        <img src="images/egypt.jpg" alt="Tour Image 2">
+        <h2>Egypt</h2>
+        <p>Ancient pyramids in Cairo</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="package-tour">
+        <img src="images/germany.jpg" alt="Tour Image 3">
+        <h2>Germany</h2>
+        <p>Zugspitze mountain in Grainau</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 WX Travel Company</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menuIcon = document.querySelector('.menu-icon');
+            var navLinks = document.querySelector('.nav-links');
+
+            menuIcon.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentPage = window.location.href;
+
+            if (currentPage.includes("index.html") || currentPage.endsWith("/")) {
+                document.getElementById("homeLink").classList.add("active");
+            } else if (currentPage.includes("page2.html")) {
+                document.getElementById("packageLink").classList.add("active");
+            } else if (currentPage.includes("page3.html")) {
+                document.getElementById("rediscoverLink").classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
