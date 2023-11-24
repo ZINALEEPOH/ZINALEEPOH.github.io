@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Responsive Web Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Albums</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExample" class="carousel slide carousel-banner" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="imgs/1.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/2.jpg" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/3.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+        </ol>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="imgs/aicunplugged.jpg" class="card-img-top" alt="Card 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">MTV Unplugged - Alice In Chains</h5>
+                        <p class="card-text">Unplugged is a live album and DVD by the American rock band Alice in
+                            Chains, released on July 30, 1996, by Columbia Records. It was recorded on April 10, 1996,
+                            at the Brooklyn Academy of Music's Majestic Theatre for the television series MTV Unplugged.
+                            The show was directed by Joe Perota and first aired on MTV on May 28, 1996. The MTV
+                            Unplugged was Alice in Chains' first concert in two and a half years, and contains live,
+                            acoustic versions of the band's biggest hits and lesser-known songs.</p>
+                        <a href="#" class="btn btn-primary btn-dark">Learn More</a>
+                    </div>
+                    <div class="card-footer">
+                        &copy;2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="imgs/betty.jpg" class="card-img-top" alt="Card 2 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Betty - Helmet</h5>
+                        <p class="card-text">Betty is the third studio album by American alternative metal band Helmet,
+                            released in 1994 by Interscope Records. It is Helmet's highest charting album in the US.
+                            Usually regarded as Helmet's experimental album, it features a broader approach with forays
+                            into jazz and blues. Frontman Page Hamilton said, "those things were my indulgences.
+                            Helmet's sonic trademarks of crunching riffs and pounding drums still define the album.
+                            Betty, along with Meantime and Aftertaste, are considered definitive influences in
+                            post-metal.</p>
+                        <a href="#" class="btn btn-primary btn-dark">Learn More</a>
+                    </div>
+                    <div class="card-footer">
+                        &copy;2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="imgs/handonthetorch.jpg" class="card-img-top" alt="Card 3 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Hand on The Torch - Us3</h5>
+                        <p class="card-text">Hand on the Torch is the debut studio album by British jazz rap group Us3.
+                            It received much attention because of its mixture of jazz with hip-hop music, with material
+                            from popular jazz musicians of the 20th century being reimagined. All samples used on the
+                            album are from old Blue Note Records classics: the most famous was Herbie Hancock's
+                            "Cantaloupe Island", which Us3 used on the track "Cantaloop (Flip Fantasia)".</p>
+                        <a href="#" class="btn btn-primary btn-dark">Learn More</a>
+                    </div>
+                    <div class="card-footer">
+                        &copy;2023
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

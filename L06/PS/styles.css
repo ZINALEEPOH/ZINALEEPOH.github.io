@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #FF8C00;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: rgb(96, 96, 96);
+}
+
+.search-box {
+    margin-left: auto;
+}
+
+.notification-icon,
+.search-box {
+    margin-right: 20px;
+}
+
+.hero-banner {
+    background-color: #db3434;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-banner .container {
+    max-width: 800px;
+}
+
+.hero-banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.title {
+    margin-top: 60px;
+}
+
+.hero-description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.hero-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FF8C00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.three-column-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #c6c6c6; 
+}
+
+.three-column-section div {
+    text-align: center;
+    max-width: 150px;
+    margin: 0 auto;
+    font-size: 14px; /* Adjusted font size for smaller text */
+}
+
+.three-column-section h2 {
+    font-size: 18px; /* Adjusted font size for smaller h2 text */
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.card {
+    flex: 0 0 calc(25% - 20px);
+    border: 1px solid #DDD; 
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #FFF; 
+    box-sizing: border-box;
+}
+
+.card img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #FF8C00;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: rgb(96, 96, 96);
+}
