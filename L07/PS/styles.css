@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.avatar-online {
+    color: green;
+}
+
+.avatar-offline {
+    color: grey;
+}
+
+.navbar {
+    background: linear-gradient(to right, #FFA500, #FF6347);
+}
+
+.hero-banner {
+    background: linear-gradient(to right, #FFA500, #FF6347);
+    color: #fff;
+    text-align: left;
+}
+
+.hero-banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-title {
+    font-size: xx-large;
+    margin-top: 60px;
+    text-align: left;
+}
+
+.hero-description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.container.mt-4 h3 {
+    font-size: large;
+    font-weight: bold;
+}
+
+.container.mt-4 p {
+    font-size: small;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(to right, #FF69B4, #e83f99);
+    color: #fff;
+    position: relative;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.card-footer p {
+    margin: 0;
+}
+
+.col-md-3 {
+    margin-bottom: 20px;
+    /* Adjust the margin as needed */
+}
+
+footer {
+    background: linear-gradient(to right, #FFA500, #FF6347);
+    color: #fff;
+    margin-top: 35px;
+}
