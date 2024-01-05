@@ -1,0 +1,106 @@
+#fp-nav {
+    bottom: 20px; /* Adjust the value as needed */
+}
+
+#fp-nav ul li a span {
+    background-color: palegoldenrod; /* Change to the desired color for inactive dots */
+}
+
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a span {
+    background-color: violet; /* Change to the desired color for active and hovered dots */
+}
+
+#fp-nav ul {
+    text-align: center;
+}
+
+#fp-nav ul li a {
+    background-color: transparent; /* Remove any existing background color */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-repeat: no-repeat;
+}
+
+
+header,
+section {
+    margin: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 4cm;
+}
+
+.section1 {
+    background-image: url('imgs/profile.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.section2 {
+    background-image: url('imgs/profile2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.slide1 {
+    background-image: url('imgs/proj1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.slide2 {
+    background-image: url('imgs/proj2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.slide3 {
+    background-image: url('imgs/proj3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.sect2 {
+    background-image: url('imgs/profile2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: purple;
+}
