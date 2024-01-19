@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            background-color: #8b4513;
+            transform-origin: bottom right;
+        }
+
+        #ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="ball"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        const ball = document.getElementById('ball');
+        const container = document.getElementById('container');
+
+        const timeline = anime.timeline({
+            easing: 'easeInOutQuad',
+            duration: 1000,
+        });
+
+        timeline
+            .add({
+                targets: container,
+                rotate: '+=90deg',
+            })
+            .add({
+                targets: ball,
+                translateX: '0%',
+                translateY: '-900%',
+            });
+
+        timeline.play();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Lion Press - COVID-19 Infographic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.2/dist/tippy-bundle.umd.min.js"></script>
+    <style>
+        .navbar-dark {
+            background-color: #343a40;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #ffffff;
+        }
+
+        #totalDeaths {
+            color: red;
+        }
+
+        .chart-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-top: 0;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                margin-left: auto;
+                margin-right: 0;
+                margin-top: 60px;
+            }
+        }
+
+        .fp-indicator {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fp-indicator li {
+            margin: 10px 0;
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fp-indicator li.active {
+            background-color: #007bff;
+        }
+
+        .human-icons {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .human-icons i {
+            color: #CCCCCC;
+            margin: 5px;
+            font-size: 36px;
+            flex: 0 0 calc(20% - 10px);
+        }
+
+        #section3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #map {
+            margin-top: 40px;
+            max-width: calc(100% - 45px);
+            height: auto;
+        }
+
+        #locations-container {
+            position: relative;
+            max-width: calc(50% - 45px);
+        }
+
+        .table-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        .marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('marker.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .marker:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="fullpage">
+
+        <div class="section" id="section1">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <a class="navbar-brand" href="#">The Lion Press</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#dashboard">Cases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#vaccination">Progress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#vaccination-centres">Vaccination Centres</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container mx-auto">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Covid-19 Cases in Singapore</h1><br>
+                        <p><strong>Total Cases:</strong> <span id="totalCases" data-count="257510">0</span></p>
+                        <p><strong>Currently in Hospital:</strong> <span id="inHospital" data-count="1365">0</span></p>
+                        <p><strong>Total Deaths:</strong> <span id="totalDeaths" data-count="678"
+                                style="color: red;">0</span></p>
+
+                        <p class="text-left">
+                            The number of Covid-19 cases in Singapore has grown to 257510,<br>
+                            with 2079 new cases reported on 31 Dec.<br><br>
+                            Of these, 2030 were reported in the community and 40 in the workers’ dormitories.<br>
+                            The remaining nine cases were imported.<br><br>
+                            A further 2275 patients were discharged, including 366 seniors aged above 60.<br>
+                            A total of 238909 cases have recovered to date.
+                        </p>
+                    </div>
+
+                    <div class="col-md-5 offset-md-7 chart-container">
+                        <canvas id="dailyCasesChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="container mx-auto">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2><strong>9</strong> out of <strong>10</strong></h2>
+                        <p>Singaporeans have been vaccinated</p><br>
+                        <div class="human-icons">
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h1>Vaccination Progress</h1><br>
+                        <p>For every 100 people in Singapore, 88 have received their first dose<br>
+                            and 87 are fully vaccinated as of 14 Dec.<br><br>
+                            In addition, the Health Ministry reported that as at 14 Dec, 96 percent<br>
+                            of the eligible population (aged 12 years and above) have completed<br>
+                            their full regime, or received two doses of Covid-19 vaccines.<br><br>
+                            With new Covid-19 variants such as Omicron surfacing, full<br>
+                            vaccination will have to include booster shots as well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="container mx-auto">
+                <br><br>
+                <h1>Vaccination Centres</h1>
+                <p class="mb-4">There are currently 12 vaccination centres in operation.</p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="map.png" alt="Map" usemap="#locationMap" id="map">
+                        <div id="locations-container" class="chart-container"></div>
+                    </div>
+                    <div class="col-md-6 table-container">
+                        <input type="text" id="searchInput" placeholder="Search by name...">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination" id="pagination"></ul>
+                        </nav>
+                        <table class="table table-bordered" id="vaccinationCentresTable">
+                            <thead>
+                                <tr>
+                                    <th>Vaccination Centre</th>
+                                    <th>Address</th>
+                                    <th>Vaccine</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vaccinationCentresTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dailyCasesData = {
+                labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"],
+                datasets: [{
+                    label: 'Dec 2021 Cases',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: [1134, 1056, 986, 771, 756, 721, 654, 742, 689, 512, 455, 376, 244, 103],
+                }]
+            };
+
+            var dailyCasesConfig = {
+                type: 'line',
+                data: dailyCasesData,
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            var dailyCasesCanvas = document.getElementById('dailyCasesChart').getContext('2d');
+            new Chart(dailyCasesCanvas, dailyCasesConfig);
+
+            function countUpAnimation(target, endVal) {
+                var startVal = 0;
+                anime({
+                    targets: target,
+                    textContent: [startVal, endVal],
+                    round: 1,
+                    duration: 2000,
+                    easing: 'easeInOutQuad'
+                });
+            }
+
+            countUpAnimation(document.getElementById('totalCases'), 257510);
+            countUpAnimation(document.getElementById('inHospital'), 1365);
+            countUpAnimation(document.getElementById('totalDeaths'), 678);
+
+            $('#fullpage').fullpage({
+                anchors: ['dashboard', 'vaccination', 'vaccination-centres'],
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ['Dashboard', 'Vaccination', 'Vaccination Centres'],
+                showActiveTooltip: true,
+                afterLoad: function (origin, destination, direction) {
+                    $('.fp-indicator li').removeClass('active');
+                    $('.fp-indicator li').eq(destination.index).addClass('active');
+
+                    if (destination.index === 1) {
+                        animateIcons();
+                    }
+                },
+            });
+
+            function animateIcons() {
+                var iconsToAnimate = document.querySelectorAll('.human-icons i:nth-child(-n+9)');
+
+                anime({
+                    targets: iconsToAnimate,
+                    color: '#00A86B',
+                    duration: 1000,
+                    easing: 'easeInOutQuad',
+                });
+            }
+
+            countUpAnimation(document.getElementById('totalCases'), 257510);
+            countUpAnimation(document.getElementById('inHospital'), 1365);
+            countUpAnimation(document.getElementById('totalDeaths'), 678);
+
+            $('#fullpage').fullpage({
+                anchors: ['dashboard', 'vaccination', 'vaccination-centres'],
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ['Dashboard', 'Vaccination', 'Vaccination Centres'],
+                showActiveTooltip: true,
+                afterLoad: function (origin, destination, direction) {
+                    $('.fp-indicator li').removeClass('active');
+                    $('.fp-indicator li').eq(destination.index).addClass('active');
+
+                    if (destination.index === 1) {
+                        animateIcons();
+                    }
+                },
+            });
+
+            function animateIcons() {
+                var iconsToAnimate = document.querySelectorAll('.human-icons i:nth-child(-n+9)');
+
+                anime({
+                    targets: iconsToAnimate,
+                    color: '#00A86B',
+                    duration: 1000,
+                    easing: 'easeInOutQuad',
+                });
+            }
+
+            countUpAnimation(document.getElementById('totalCases'), 257510);
+            countUpAnimation(document.getElementById('inHospital'), 1365);
+            countUpAnimation(document.getElementById('totalDeaths'), 678);
+
+            $('#fullpage').fullpage({
+                anchors: ['dashboard', 'vaccination', 'vaccination-centres'],
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ['Dashboard', 'Vaccination', 'Vaccination Centres'],
+                showActiveTooltip: true,
+                afterLoad: function (origin, destination, direction) {
+                    $('.fp-indicator li').removeClass('active');
+                    $('.fp-indicator li').eq(destination.index).addClass('active');
+
+                    if (destination.index === 1) {
+                        animateIcons();
+                    }
+                },
+            });
+
+            function animateIcons() {
+                var iconsToAnimate = document.querySelectorAll('.human-icons i:nth-child(-n+9)');
+
+                anime({
+                    targets: iconsToAnimate,
+                    color: '#00A86B',
+                    duration: 1000,
+                    easing: 'easeInOutQuad',
+                    delay: anime.stagger(100)
+                });
+            }
+            var locations = [
+                { left: -40, top: -150, content: 'Bedok Polyclinic' },
+                { left: -50, top: -200, content: 'Bukit Batok Polyclinic' },
+                { left: -60, top: -100, content: 'Bukit Merah Polyclinic' },
+                { left: -100, top: -300, content: 'Choa Chu Kang Polyclinic' },
+                { left: -210, top: -300, content: 'Clementi Polyclinic' },
+                { left: -1, top: -300, content: 'Geylang Polyclinic' },
+                { left: -50, top: -350, content: 'Hougang Polyclinic' },
+                { left: 80, top: -180, content: 'Jurong Polyclinic' },
+                { left: -30, top: -250, content: 'Marine Parade Polyclinic' },
+                { left: -20, top: -300, content: 'Outram Polyclinic' },
+                { left: 80, top: -250, content: 'Pasir Ris Polyclinic' },
+                { left: -250, top: -170, content: 'Pioneer Polyclinic' }
+            ];
+
+            function createMarker(left, top) {
+                var marker = document.createElement('div');
+                marker.className = 'marker';
+                marker.style.left = left + 'px';
+                marker.style.top = top + 'px';
+                document.getElementById('locations-container').appendChild(marker);
+                return marker;
+            }
+
+            var mapCenterLeft = document.getElementById('map').offsetWidth / 2;
+            var mapCenterTop = document.getElementById('map').offsetHeight / 2;
+
+            locations.forEach(function (location) {
+                var adjustedLeft = mapCenterLeft + location.left;
+                var adjustedTop = mapCenterTop + location.top;
+
+                var marker = createMarker(location.left, location.top);
+
+                var tooltip = document.createElement('div');
+                tooltip.textContent = location.content;
+
+                tippy(marker, {
+                    content: tooltip,
+                    allowHTML: true,
+                    placement: 'top',
+                    offset: [0, 0],
+                    appendTo: document.getElementById('locations-container'),
+                });
+
+                tooltip.style.left = adjustedLeft + 'px';
+                tooltip.style.top = adjustedTop + 'px';
+            });
+
+
+            var vaccinationCentres = [
+                { name: 'Bedok Polyclinic', address: '11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662', vaccine: 'Pfizer', phone: '6343 1121' },
+                { name: 'Bukit Batok Polyclinic', address: '50 Bukit Batok West Avenue 3, Singapore 659164', vaccine: 'Moderna', phone: '6343 1122' },
+                { name: 'Bukit Merah Polyclinic', address: '162 Bukit Merah Central Level 4, Singapore 150163', vaccine: 'Pfizer', phone: '6343 1123' },
+                { name: 'Choa Chu Kang Polyclinic', address: '2 Teck Whye Crescent, Singapore 688846', vaccine: 'Moderna', phone: '6343 1124' },
+                { name: 'Clementi Polyclinic', address: '451 Clementi Avenue 3, Singapore 120451', vaccine: 'Pfizer', phone: '6343 1125' },
+                { name: 'Geylang Polyclinic', address: '21 Geylang East Central, Singapore 389707', vaccine: 'Pfizer', phone: '6343 1126' },
+                { name: 'Hougang Polyclinic', address: '89 Hougang Avenue 4, Singapore 538829', vaccine: 'Pfizer', phone: '6765 1121' },
+                { name: 'Jurong Polyclinic', address: '190 Jurong East Avenue 1, Singapore 609788', vaccine: 'Pfizer', phone: '6765 1122' },
+                { name: 'Marine Parade Polyclinic', address: '80 Marine Parade Central, Singapore 440080', vaccine: 'Pfizer', phone: '6765 1123' },
+                { name: 'Outram Polyclinic', address: '3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937', vaccine: 'Comirnaty', phone: '6765 1124' },
+                { name: 'Pasir Ris Polyclinic', address: '1 Pasir Ris Drive 4, Singapore 519457', vaccine: 'Comirnaty', phone: '6765 1125' },
+                { name: 'Pioneer Polyclinic', address: '26 Jurong West Street 61, Singapore 648201', vaccine: 'Moderna', phone: '6765 1126' }
+            ];
+
+            var itemsPerPage = 6;
+            var currentPage = 1;
+            var totalCentres = vaccinationCentres.length;
+            var totalPages = Math.ceil(totalCentres / itemsPerPage);
+
+            populateTable();
+
+            function populateTable() {
+                var startIndex = (currentPage - 1) * itemsPerPage;
+                var endIndex = startIndex + itemsPerPage;
+                var tableBody = document.getElementById('vaccinationCentresTableBody');
+                tableBody.innerHTML = '';
+
+                for (var i = startIndex; i < endIndex && i < totalCentres; i++) {
+                    var centre = vaccinationCentres[i];
+                    var row = tableBody.insertRow();
+                    row.insertCell(0).textContent = centre.name;
+                    row.insertCell(1).textContent = centre.address;
+                    row.insertCell(2).textContent = centre.vaccine;
+                    row.insertCell(3).textContent = centre.phone;
+                }
+            }
+
+            function updatePagination() {
+                var pagination = document.getElementById('pagination');
+                pagination.innerHTML = '';
+
+                for (var i = 1; i <= totalPages; i++) {
+                    var li = document.createElement('li');
+                    li.className = 'page-item';
+                    var a = document.createElement('a');
+                    a.className = 'page-link';
+                    a.href = '#';
+                    a.textContent = i;
+                    a.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        currentPage = parseInt(event.target.textContent);
+                        populateTable();
+                        updatePagination();
+                    });
+                    li.appendChild(a);
+                    pagination.appendChild(li);
+                }
+            }
+
+            updatePagination();
+        });
+    </script>
+
+</body>
+
+</html>

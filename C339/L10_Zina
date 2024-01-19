@@ -1,0 +1,54 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
+from time import sleep
+
+
+#declare reusable variable
+application_url = "http://localhost:3000"
+login_email = "test@gmail.com"
+login_password = "password1234"
+unknown_email = ""
+unknown_password = ""
+
+#define successful login function
+def test_successful_login():
+    driver = webdriver.Edge()
+    driver.get(application_url)
+    driver.maximize_window()
+    
+    #0) click the "Dismiss" (XPATH)
+    driver.find_element(By.XPATH, '//*[@id="mat-dialog-0"]/app-welcome-banner/div/div[2]/button[2]').click()  
+
+    #1) click the "Account" (XPATH)
+    driver.find_element(By.XPATH, '//*[@id="navbarAccount"]/span[1]/span').click()
+    
+
+    #2) login (XPATH)
+    driver.find_element(By.XPATH, '//*[@id="navbarLoginButton"]').click()
+    
+
+    #3) email (ID)
+    driver.find_element(By.ID, 'email').send_keys(login_email)
+    
+
+    #4) password (ID)
+    driver.find_element(By.ID, 'password').send_keys(login_password)
+    
+
+    #5) press the login (ID)
+    driver.find_element(By.ID, 'loginButton').click()
+
+
+    #6) wait for login successful
+    WebDriverWait(driver, 10).until(EC.url_contains("/#/search"))
+    
+
+    #quit the successful code
+    driver.quit()
+
+#run the successful code
+test_successful_login()
