@@ -1,0 +1,105 @@
+#fullpage .section {
+    position: relative;
+}
+
+#fullpage .section:first-child .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#bookDisplay {
+    max-height: 400px;
+    overflow-y: auto;
+    align-items: center;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.reserve-button {
+    width: 100%;
+}
+
+.jumbotron {
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f3f3f3;
+    text-align: left;
+}
+
+.chart-container canvas {
+    height: 400px;
+}
+
+.jumbotron h1 {
+    font-size: xx-large;
+}
+
+.jumbotron img {
+    float: right;
+    margin-right: 80px;
+}
+
+#inventoryTable {
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    text-align: right;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 8px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: medium;
+}
+
+footer ul.list-inline {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: small;
+}
+
+
+footer ul.list-inline li a {
+    text-decoration: none;
+    color: darkgray;
+    font-weight: bold;
+}
+
+footer ul.list-inline li a:hover {
+    color: gray;
+}
+
+@media (max-width: 768px) {
+    #inventoryTable_wrapper {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    #inventoryTable {
+        width: 100%;
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/tippy.js@6.3.2/dist/tippy-bundle.umd.min.js"></script>
+  <script src="script.js"></script>
+  <title>The School Library</title>
+</head>
+
+<body>
+  <div id="fullpage">
+    <section class="section" data-anchor="section1">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+          <a class="navbar-brand" href="#section1">
+            <img src="imgs/booklogo.png" alt="Book Logo" class="logo">
+            <a class="navbar-brand" href="#">The School Library</a>
+            <button id="navbarToggleBtn" class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#section1">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#section2">Stats</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#section3">Inventory</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Search for books" id="searchInput">
+              <div class="input-group-append">
+                <button class="btn btn-primary custom-button" id="searchButton">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="bookDisplay">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-anchor="section2">
+      <div class="container">
+        <div class="jumbotron">
+          <img src="imgs/hero1.png" alt="Hero Image">
+          <h1>Welcome to The School Library</h1>
+          <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading
+            pleasure.</p>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="chart" style="height: 400px;"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-anchor="section3">
+      <div class="container">
+        <div class="jumbotron">
+          <img src="imgs/hero2.png" alt="Hero Image">
+          <h1>Welcome to The School Library</h1>
+          <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading
+            pleasure.</p>
+        </div>
+        <table id="inventoryTable" class="table table-striped">
+        </table>
+      </div>
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p>&copy; 2024 The School Library</p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#section1">Home</a></li>
+                <li class="list-inline-item"><a href="#section2">Stats</a></li>
+                <li class="list-inline-item"><a href="#section3">Inventory</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookModalLabel">Title: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="bookModalGenre">Genre: </p>
+          <p id="bookModalReviews">Rating: </p>
+          <p id="bookModalDescription">Description: </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="your-script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="your-script.js"></script>
+</body>
+
+
+</html>
