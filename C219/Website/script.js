@@ -15,7 +15,7 @@ $(document).ready(function () {
         {
             title: "Piranesi",
             author: "Susanna Clarke",
-            cover: "imgs/piranesi.jpg",
+            cover: "images/piranesi.jpg",
             description: "Piranesi’s house is no ordinary building: its rooms are infinite, its corridors endless, its walls are lined with thousands upon thousands of statues, each one different from all the others. Within the labyrinth of halls an ocean is imprisoned; waves thunder up staircases, rooms are flooded in an instant. But Piranesi is not afraid; he understands the tides as he understands the pattern of the labyrinth itself. He lives to explore the house.",
             genre: "Fantasy",
             reviews: "4.23"
@@ -23,14 +23,14 @@ $(document).ready(function () {
         {
             title: "Nausea",
             author: "Jean-Paul Sartre",
-            cover: "imgs/nausea.jpg",
+            cover: "images/nausea.jpg",
             description: "Nausea is the story of Antoine Roquentin, a French writer who is horrified at his own existence. In impressionistic, diary form he ruthlessly catalogues his every feeling and sensation about the world and people around him. His thoughts culminate in a pervasive, overpowering feeling of nausea which spread at the bottom of the viscous puddle, at the bottom of our time, the time of purple suspenders and broken chair seats; it is made of wide, soft instants, spreading at the edge, like an oil stain. Roquentin's efforts to try and come to terms with his life, his philosophical and psychological struggles, give Sartre the opportunity to dramatize the tenets of his Existentialist creed. The introduction for this edition of Nausea by Hayden Carruth gives background on Sartre's life and major works, a summary of the principal themes of Existentialist philosophy, and a critical analysis of the novel itself.",
             genre: "Philosophical Fiction",
             reviews: "3.94"
         },
         {
             title: "The Divine Comedy",
-            cover: "imgs/divine.jpg",
+            cover: "images/divine.jpg",
             author: "Dante Alighieri",
             genre: "Poetry",
             reviews: "4.08",
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         {
             title: "Crime and Punishment",
-            cover: "imgs/cnp.jpg",
+            cover: "images/cnp.jpg",
             author: "Fyodor Dostoevsky",
             genre: "Philosophical Fiction",
             reviews: "4.26",
@@ -47,7 +47,7 @@ $(document).ready(function () {
         },
         {
             title: "The World as Will and Representation, Volume I",
-            cover: "imgs/willandrep.jpg",
+            cover: "images/willandrep.jpg",
             author: "Arthur Schopenhauer",
             genre: "Philosophy",
             reviews: "4.21",
@@ -55,7 +55,7 @@ $(document).ready(function () {
         },
         {
             title: "The Myth of Sisyphus and Other Essays",
-            cover: "imgs/myth.jpg",
+            cover: "images/myth.jpg",
             author: "Albert Camus",
             genre: "Philosophy",
             reviews: "4.22",
@@ -64,7 +64,7 @@ $(document).ready(function () {
 
         {
             title: "Frankenstein: The 1818 Text",
-            cover: "imgs/franken.jpg",
+            cover: "images/franken.jpg",
             author: "Mary Shelley",
             genre: "Horror",
             reviews: "3.87",
@@ -72,7 +72,7 @@ $(document).ready(function () {
         },
         {
             title: "A River Dies of Thirst: Journals",
-            cover: "imgs/river.jpg",
+            cover: "images/river.jpg",
             author: "Mahmoud Darwish",
             genre: "Poetry",
             reviews: "4.24",
